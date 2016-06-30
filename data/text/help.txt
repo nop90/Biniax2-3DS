@@ -19,27 +19,21 @@ no kills, no violence, no weapons.
  :NAVIGATING THE MENU:
 =======================
 Use arrow keys to navigate in the menu. when you
-want to select an option press "enter" key.
-You can use touch-screen to select option from
-the menu with double click.
+want to select an option press A key.
 
 =======================
  :NAVIGATING THE GAME:
 =======================
 == SINGLEPLAYER MODES ==
 Inside the game, use arrow keys to move the pla-
-yer, "space" key (or tap the broom, when touch-
-screen is enabled) to clear the whole column, and
-"escape" key to enter the main menu.
-Using touch-screen you can also navigate your
-block, pointing the direction to move.
+yer, B key to clear the whole column, and X key 
+to enter the main menu.
 
 == MULTIPLAYER MODE ==
-Use arrow keys to navigate player-1 and 
-"W", "A", "S", "D" for player-2. 
-Enter the menu with "escape" and restart the
-party with "enter" or "space" keys.
-No touch-screen control is enabled in multi.
+Connect with a second 3ds and use arrow keys
+to navigate your player. 
+Enter the menu with X and restart the
+party with A or B keys.
 
 ==============
  :GAME RULES:
@@ -99,6 +93,8 @@ Jordan Tuzsuzov
 
 Version 1.30
 May 2009
+
+Port to 3DS by NOP90 - June 2016
 
 Biniax-2 is Copyright (C) 2007 - Jordan Tuzsuzov
 Biniax is Copyright (C) 2005 - Jordan Tuzsuzov

@@ -48,10 +48,10 @@ int getLanguage(void);
 void setLanguage(int languageID);
 
 
-#define SDLK_SPACE	KEY_Y
 #define SDLK_RETURN	KEY_A
-#define SDLK_ESCAPE	KEY_B
-#define SDLK_DELETE KEY_X
+#define SDLK_SPACE	KEY_B
+#define SDLK_ESCAPE	KEY_X
+#define SDLK_DELETE KEY_Y
 #define SDLK_LEFT	KEY_LEFT
 #define SDLK_RIGHT	KEY_RIGHT
 #define SDLK_UP		KEY_UP
