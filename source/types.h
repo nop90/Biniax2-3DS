@@ -39,7 +39,7 @@ typedef unsigned int		BNX_UINT32;
 SIGNED TYPES
 ******************************************************************************/
 
-typedef char		BNX_INT8;
+typedef signed char	BNX_INT8;
 typedef short int	BNX_INT16;
 typedef int			BNX_INT32;
 

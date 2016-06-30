@@ -883,6 +883,9 @@ BNX_BOOL gfxInBox( BNX_INT16 x, BNX_INT16 y, BNX_BOX *box )
 
 void gfxGetVirtualKey( BNX_GAME *game, BNX_INP *inp )
 {
+
+	return; // touchscreen game control disabled
+
 	BNX_INT16	nPlayerCenterX;
 	BNX_INT16	nPlayerCenterY;
 	
@@ -947,6 +950,7 @@ void gfxGetVirtualKey( BNX_GAME *game, BNX_INP *inp )
 			}
 		}
 	}
+
 }
 
 void gfxGetVirtualChar( BNX_GAME *game, BNX_INP *inp )
