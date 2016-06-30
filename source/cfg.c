@@ -36,7 +36,7 @@ FUNCTIONS
 ******************************************************************************/
 
 #define _Cfg_Buffer 255
-#define csConfigName "config.bnx2"
+#define csConfigName "sdmc:/3ds/Biniax2/config.bnx2"
 
 struct BNX_SETUP
 {

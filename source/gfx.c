@@ -658,7 +658,7 @@ void gfxRenderJumpyText( void )
 	static BNX_INT16	wave = 0;
 	if ( _Gfx.jtext.downtime > 0 )
 	{
-		gfxPrintTextWave( _Gfx.jtext.x, _Gfx.jtext.y, TXT_Extras[ _Gfx.jtext.index ], wave++ );
+		gfxPrintTextWave( _Gfx.jtext.x*scaleX, _Gfx.jtext.y, TXT_Extras[ _Gfx.jtext.index ], wave++ );
 		wave %= cGfxMaxWave;
 	}
 }
@@ -666,10 +666,10 @@ void gfxRenderJumpyText( void )
 void gfxRoadmap( BNX_INT32 prev, BNX_INT32 score )
 {
 	BNX_INT16	lev;
-	BNX_INT16	cur;
+	BNX_INT16	cur, cur2;
 	BNX_INT16	swi = 0;
 	BNX_INT32	startTime;
-	SDL_Rect	pos;
+	SDL_Rect	pos, pos2;
 
 	if ( prev < cRoadBeginnerScore && score >= cRoadBeginnerScore )
 	{
@@ -704,33 +704,35 @@ void gfxRoadmap( BNX_INT32 prev, BNX_INT32 score )
 		return;
 	}
 
-	pos.x = (BNX_INT16) ( cGfxScreenX - _Gfx.roadmap->w ) >> 1;
-	pos.y = (BNX_INT16) ( cGfxScreenY - _Gfx.roadmap->h ) >> 1;
-	SDL_BlitSurface( _Gfx.roadmap, NULL, _Gfx.screen, &pos );
-
-	pos.x += cGfxRoadmapBX;
-	pos.y += cGfxRoadmapBY;
-	pos.w = cGfxRoadmapBSize;
-	pos.h = cGfxRoadmapBSize;
-	for ( cur = 0; cur < lev; ++cur )
-	{
-		SDL_FillRect( _Gfx.screen, &pos, SDL_MapRGB( _Gfx.screen->format, 255, 0, 0 ) );
-		pos.y += cGfxRoadmapDY;
-	}
-
-	gfxUpdate();
+	pos.x = (BNX_INT16) (( 320 - _Gfx.roadmap->w )/scaleY) >> 1;
+	pos.y = (BNX_INT16) (( 240 - _Gfx.roadmap->h )/scaleY) >> 1;
 
 	for ( cur = 0; cur < cGfxRoadmapIter; ++cur )
 	{
 		startTime = sysGetTime();
 
+		SDL_BlitSurface( _Gfx.roadmap, NULL, _Gfx.screen, &pos );
+		pos2.x = pos.x + cGfxRoadmapBX;
+		pos2.y = pos.y + cGfxRoadmapBY;
+		pos2.w = cGfxRoadmapBSize;
+		pos2.h = cGfxRoadmapBSize;
+
+		for ( cur2 = 0; cur2 < lev; ++cur2 )
+		{
+			SDL_FillRect( _Gfx.screen, &pos2, SDL_MapRGB( 0, 255, 0, 0 ) );
+//			SDL_FillRect( _Gfx.screen, &pos2, SDL_MapRGB( _Gfx.screen->format, 255, 0, 0 ) );
+			pos2.y += cGfxRoadmapDY;
+		}
+
 		if ( (swi & 1) == 0 )
 		{
-			SDL_FillRect( _Gfx.screen, &pos, SDL_MapRGB( _Gfx.screen->format, 255, 0, 0 ) );
+			SDL_FillRect( _Gfx.screen, &pos2, SDL_MapRGB( 0, 255, 0, 0 ) );
+//			SDL_FillRect( _Gfx.screen, &pos2, SDL_MapRGB( _Gfx.screen->format, 255, 0, 0 ) );
 		}
 		else
 		{
-			SDL_FillRect( _Gfx.screen, &pos, SDL_MapRGB( _Gfx.screen->format, 128, 0, 0 ) );
+			SDL_FillRect( _Gfx.screen, &pos2, SDL_MapRGB( 0, 128, 0, 0 ) );
+//			SDL_FillRect( _Gfx.screen, &pos2, SDL_MapRGB( _Gfx.screen->format, 128, 0, 0 ) );
 		}
 
 		swi ++;
