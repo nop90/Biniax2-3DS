@@ -33,6 +33,10 @@ void soundInit()
 void soundClose()
 {
 	int i;
+
+	CSND_SetPlayState(15, 0);//Stop music audio playback.
+	csndExecCmds(0);
+
 	for(i=0;i<NUMSFX;i++)
 	{
 		if(SFX[i].used)

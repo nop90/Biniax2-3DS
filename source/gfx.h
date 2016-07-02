@@ -57,8 +57,8 @@ GRAPHICS CONSTANTS
 #define cGfxMarkerPlusX	70
 #define cGfxMarkerPlusY	-64
 
-#define cGfxFontSizeX	16
-#define cGfxFontSizeY	32
+#define cGfxFontSizeX	20 //16
+#define cGfxFontSizeY	40 //32
 #define cGfxFontTileX	14
 #define cGfxFontTileY	10
 
@@ -77,7 +77,7 @@ GRAPHICS CONSTANTS
 
 #define cGfxMoveCX		690
 #define cGfxMoveCY		185
-#define cGfxLegendX		683
+#define cGfxLegendX		673
 #define cGfxLegendY		150
 
 #define cGfxOptionX		332
@@ -139,7 +139,7 @@ GRAPHICS CONSTANTS
 
 #define cGfxKeyboardX		0 //185
 #define cGfxKeyboardY1		275 //315
-#define cGfxKeyboardY2		160 // 185
+#define cGfxKeyboardY2		275 // 185
 #define cGfxKeyGridX		10
 #define cGfxKeyGridY		4
 #define cGfxHofNoKeyboard	0

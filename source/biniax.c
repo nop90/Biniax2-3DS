@@ -50,6 +50,7 @@ INCLUDES
 #include "game.h"
 #include "lev.h"
 #include "inc.h"
+#include "ai.h"
 
 /* Global instance of GAME structure */
 BNX_GAME Game;
@@ -153,6 +154,7 @@ int main( int argc, char *argv[] )
 					break;
 				case cOptionNewMultiplayer:
 					initGame( &Game );
+					initAI();
 					Game.mode = cModeMultiplayer;
 					enterState = cStateGame;
 					break;
@@ -644,6 +646,7 @@ BNX_INT16 gameSession( BNX_GAME *game )
 		game->sounds = cSndNone;
 
 		inpUpdate();
+		if(game->mode == cModeMultiplayer) aiMove( game, inpDirect() );
 		gfxGetVirtualKey( game, inpDirect() );
 		if ( inpKeyA() )
 		{

@@ -265,8 +265,8 @@ void gfxRenderGame( BNX_GAME *game )
 			}
 
 			/* RENDER REMAINING TIME TO THE SCROLL */
-			sprintf( text, "%06d", game->scroll );
-			gfxPrintText( cGfxLegendX, cGfxLegendY, " TIME " );
+			sprintf( text, " %04d", game->scroll );
+			gfxPrintText( cGfxLegendX, cGfxLegendY, " TIME" );
 			gfxPrintText( cGfxLegendX, cGfxLegendY + (cGfxFontSizeY<<1), text );
 
 			/* RENDER MULTIPLAYER SCORE */
@@ -294,14 +294,14 @@ void gfxRenderGame( BNX_GAME *game )
 			gfxPrintText( cGfxBestX, cGfxBestY, text );
 
 			/* RENDER CLEARS LEFT */
-			sprintf( text, "   %02d", game->clears );
+			sprintf( text, "  %02d", game->clears );
 			gfxPrintText( cGfxClearsTX, cGfxClearsTY, text );
 		}
 		else if ( game->mode == cModeRealtime )
 		{
 			/* RENDER REMAINING TIME TO THE SCROLL */
-			sprintf( text, "%06d", game->scroll );
-			gfxPrintText( cGfxLegendX, cGfxLegendY, " TIME " );
+			sprintf( text, " %04d", game->scroll );
+			gfxPrintText( cGfxLegendX, cGfxLegendY, " TIME" );
 			gfxPrintText( cGfxLegendX, cGfxLegendY + (cGfxFontSizeY<<1), text );
 
 			/* RENDER SCORE FOR ARCADE GAME */
@@ -311,7 +311,7 @@ void gfxRenderGame( BNX_GAME *game )
 			gfxPrintText( cGfxBestX, cGfxBestY, text );
 
 			/* RENDER CLEARS LEFT */
-			sprintf( text, "   %02d", game->clears );
+			sprintf( text, "  %02d", game->clears );
 			gfxPrintText( cGfxClearsAX, cGfxClearsAY, text );
 		}
 
@@ -348,7 +348,7 @@ void gfxRenderGame( BNX_GAME *game )
 					gfxMessageBox( cGfxMessageX, cGfxMessageY, text );
 					break;
 				case cTextBestScore :
-					sprintf( text, "CONGRATULATIONS, BEST RESULT : %d", game->best[ game->mode ] );
+					sprintf( text, "BEST RESULT : %d", game->best[ game->mode ] );
 					gfxMessageBox( cGfxMessageX, cGfxMessageY, text );
 					break;
 				case cTextMultiRound1 :
@@ -520,7 +520,7 @@ void gfxRenderHof( BNX_HALL *hof, BNX_INT16 hofview )
 	char ptrTxt[ cGfxStrLen ];
 
 	x = cGfxHelpX;
-	y = cGfxHelpY + cGfxHelpDY;
+	y = cGfxHelpY + cGfxHelpDY/2;
 
 	SDL_BlitSurface( _Gfx.logo, NULL, _Gfx.screen2, NULL );
 	if ( cfgGetTouch() == BNX_TRUE && hofview !=cGfxHofNoKeyboard)
@@ -544,27 +544,27 @@ void gfxRenderHof( BNX_HALL *hof, BNX_INT16 hofview )
 
 	SDL_BlitSurface( _Gfx.help, NULL, _Gfx.screen, NULL );
 
-	x = cGfxHelpX - ( ( (BNX_INT16) (strlen( TXT_HofCase[ 0 ] ) - 1) * cGfxFontSizeX ) >> 1 );
+	x = cGfxHelpX - cGfxFontSizeX/2 - ( ( (BNX_INT16) (strlen( TXT_HofCase[ 0 ] ) - 1) * cGfxFontSizeX ) >> 1 );
 	gfxPrintText( x, y, TXT_HofCase[ 0 ] );
 	y += cGfxHelpDY;
 
 	for ( i = 0; i < cHofEntries; ++i )
 	{
-		sprintf( ptrTxt, "#%d - %s - %8d", i+1, hof->arcade[ i ].name, hof->arcade[ i ].score );
-		x = cGfxHelpX - ( ( (BNX_INT16) (strlen( ptrTxt ) - 1) * cGfxFontSizeX ) >> 1 );
+		sprintf( ptrTxt, "#%d %s %5d", i+1, hof->arcade[ i ].name, hof->arcade[ i ].score );
+		x = cGfxHelpX - cGfxFontSizeX/2 - ( ( (BNX_INT16) (strlen( ptrTxt ) - 1) * cGfxFontSizeX ) >> 1 );
 		gfxPrintText( x, y, ptrTxt );
 		y += cGfxHelpDY;
 	}
 
 	y += (cGfxHelpDY<<1);
-	x = cGfxHelpX - ( ( (BNX_INT16) (strlen( TXT_HofCase[ 1 ] ) - 1) * cGfxFontSizeX ) >> 1 );
+	x = cGfxHelpX - cGfxFontSizeX/2 - ( ( (BNX_INT16) (strlen( TXT_HofCase[ 1 ] ) - 1) * cGfxFontSizeX ) >> 1 );
 	gfxPrintText( x, y, TXT_HofCase[ 1 ] );
 	y += cGfxHelpDY;
 
 	for ( i = 0; i < cHofEntries; ++i )
 	{
-		sprintf( ptrTxt, "#%d - %s - %8d", i+1, hof->tactic[ i ].name, hof->tactic[ i ].score );
-		x = cGfxHelpX - ( ( (BNX_INT16) (strlen( ptrTxt ) - 1) * cGfxFontSizeX ) >> 1 );
+		sprintf( ptrTxt, "#%d %s %5d", i+1, hof->tactic[ i ].name, hof->tactic[ i ].score );
+		x = cGfxHelpX - cGfxFontSizeX/2 - ( ( (BNX_INT16) (strlen( ptrTxt ) - 1) * cGfxFontSizeX ) >> 1 );
 		gfxPrintText( x, y, ptrTxt );
 		y += cGfxHelpDY;
 	}
