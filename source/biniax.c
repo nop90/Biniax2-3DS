@@ -51,6 +51,7 @@ INCLUDES
 #include "lev.h"
 #include "inc.h"
 #include "ai.h"
+#include <3ds.h>
 
 /* Global instance of GAME structure */
 BNX_GAME Game;
@@ -117,7 +118,7 @@ int main( int argc, char *argv[] )
 	/******************************************************************
 	MAIN STATE MACHINE
 	******************************************************************/
-	while ( bquit == BNX_FALSE )
+	while ( bquit == BNX_FALSE && aptMainLoop())
 	{
 		/******************************************************************
 		MAIN MENU STATE
@@ -232,6 +233,7 @@ int main( int argc, char *argv[] )
 		}
 	}
 
+//	SDL_Quit();
 	exit(0);
 	return 0;
 }

@@ -110,36 +110,17 @@ void inpUpdate()
 				if(key & SDLK_PAGEDOWN) 
 						_Inp.keyPageDown= BNX_TRUE;
 
-//		}
-/*
-				if ( event.key.keysym.sym >= SDLK_a && event.key.keysym.sym <= SDLK_z )
-				{
-					_Inp.letter = (event.key.keysym.sym - SDLK_a) + 'A';
-				}
-				else if ( event.key.keysym.sym >= SDLK_0 && event.key.keysym.sym <= SDLK_9 )
-				{
-					_Inp.letter = (event.key.keysym.sym - SDLK_0) + '0';
-				}
-				else if ( event.key.keysym.sym == SDLK_SPACE )
-				{
-					_Inp.letter = ' ';
-				}
-*/
-//			break;
-
 
 		if (key & SDL_MOUSEBUTTONDOWN) {
-//		if (event & SDL_MOUSEBUTTONDOWN) {
-//			case SDL_MOUSEBUTTONDOWN :
 				_Inp.mousePress = BNX_TRUE;
-//			break;
 		}
+
 
 		if (!aptMainLoop()) {
 //		if (event & SDL_QUIT) {
 //			case SDL_QUIT:
 				SDL_Quit();
-				exit( 2 );
+				exit(0);
 //			break;
 		}
 
